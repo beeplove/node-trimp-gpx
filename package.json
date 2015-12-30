@@ -1,0 +1,27 @@
+{
+  "name": "trimp-gpx",
+  "version": "0.0.1",
+  "description": "TRIMP calculation from GPX (the GPS Exchange Format)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beeplove/node-trimp-gpx.git"
+  },
+  "keywords": [
+    "trimp",
+    "running",
+    "swimming",
+    "cycling",
+    "endurance",
+    "gpx"
+  ],
+  "author": "Mohammad Khan <mohammad.khan@gmx.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beeplove/node-trimp-gpx/issues"
+  },
+  "homepage": "https://github.com/beeplove/node-trimp-gpx#readme"
+}
