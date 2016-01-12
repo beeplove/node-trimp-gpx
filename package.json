@@ -26,6 +26,7 @@
   "homepage": "https://github.com/beeplove/node-trimp-gpx#readme",
   "dependencies": {
     "moment": "^2.10.6",
+    "trimp": "^0.1.2",
     "xml2js": "^0.4.15"
   }
 }
