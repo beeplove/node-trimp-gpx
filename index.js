@@ -85,14 +85,27 @@ module.exports = function (config) {
 
                 track.trkseg.forEach(function (segment) {
                     segment.trkpt.forEach(function (trackPoint) {
-                        var time1 = moment(trackPoint.time[0]);
                         var hr1 = -1;
+
                         var lat2 = parseFloat(trackPoint.$.lat);
                         var lon2 = parseFloat(trackPoint.$.lon);
 
-                        if (trackPoint.extensions) {
-                            hr1 = trackPoint.extensions[0]['gpxtpx:TrackPointExtension'][0]['gpxtpx:hr'][0];
+
+                        if (lat2 === 0) lat2 = null;
+                        if (lon2 === 0) lon2 = null;
+
+
+                        if (trackPoint.extensions && trackPoint.extensions[0]) {
+                            if (trackPoint.extensions[0]['ns3:TrackPointExtension'] && trackPoint.extensions[0]['ns3:TrackPointExtension'][0]) {
+                                if (trackPoint.extensions[0]['ns3:TrackPointExtension'][0]['ns3:hr']) {
+                                    hr1 = trackPoint.extensions[0]['ns3:TrackPointExtension'][0]['ns3:hr'][0];
+                                }
+                            }
                         }
+
+
+                        var time1 = moment(trackPoint.time[0]);
+
 
                         if (time && hr) {
                             if (hr === -1) {
@@ -106,7 +119,7 @@ module.exports = function (config) {
                             summary[hr] = summary[hr] + (time1 - time);
                         }
 
-                        if (lat1 && lon1) {
+                        if (lat1 && lon1 && lat2 && lon2) {
                             kilometers = kilometers + calculateDistance(lat1, lon1, lat2, lon2);
                         };
 
